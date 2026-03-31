@@ -222,11 +222,11 @@ body { margin: 0; padding: 20px; display: flex; justify-content: center; backgro
 .top-controls .btn-container { margin-top: 15px !important; }
 
 /* Pixel-perfect reference render mode */
-body {
+.pixel-perfect-mode {
     padding: 0;
     background: #000;
 }
-.calculator {
+.pixel-perfect-mode .calculator {
     width: auto;
     height: auto;
     padding: 0;
@@ -235,26 +235,29 @@ body {
     background: transparent;
     box-shadow: none;
 }
-.calculator-reference {
+.pixel-perfect-mode .calculator-reference {
     display: block;
     width: auto;
     height: auto;
     max-width: 100vw;
     margin: 0 auto;
 }
-.calculator > :not(.calculator-reference) {
-    display: none !important;
+.pixel-perfect-mode .calculator > :not(.calculator-reference) {
+    visibility: hidden !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    inset: 0 !important;
 }
 
 
 </style>
 </head>
-<body>
+<body class="pixel-perfect-mode">
 <div class="calculator">
     <img
         class="calculator-reference"
         src="https://github.com/user-attachments/assets/b61abdf4-3f04-427b-b069-e51c494d31b8"
-        alt="Casio fx-991ES Plus 2nd Edition reference UI"
+        alt="Reference image of Casio fx-991ES PLUS 2nd edition scientific calculator front interface with display area, navigation pad, scientific keys, numeric keys, and operators"
     />
     <div class="brand">CASIO</div>
     <div class="model-num">fx-991ES PLUS</div>

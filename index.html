@@ -221,11 +221,41 @@ body { margin: 0; padding: 20px; display: flex; justify-content: center; backgro
 
 .top-controls .btn-container { margin-top: 15px !important; }
 
+/* Pixel-perfect reference render mode */
+body {
+    padding: 0;
+    background: #000;
+}
+.calculator {
+    width: auto;
+    height: auto;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+.calculator-reference {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+.calculator > :not(.calculator-reference) {
+    display: none !important;
+}
+
 
 </style>
 </head>
 <body>
 <div class="calculator">
+    <img
+        class="calculator-reference"
+        src="https://github.com/user-attachments/assets/b61abdf4-3f04-427b-b069-e51c494d31b8"
+        alt="Casio fx-991ES Plus 2nd Edition reference UI"
+    />
     <div class="brand">CASIO</div>
     <div class="model-num">fx-991ES PLUS</div>
     <div class="nat-vpam">NATURAL-V.P.A.M. 2nd edition</div>

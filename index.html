@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casio fx-991ES PLUS 2nd Edition Replica</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #calculator {
+            background-color: #2b2b2b; /* Dark casing */
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.1);
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+        }
+
+        /* Top Brand Area */
+        .brand-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            color: white;
+            padding: 0 10px;
+        }
+        .brand-logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+        .brand-model {
+            font-size: 0.7rem;
+            font-style: italic;
+            color: #aaa;
+        }
+        .solar-panel {
+            width: 80px;
+            height: 25px;
+            background-color: #3d2c2c;
+            border: 1px solid #1a1a1a;
+            border-radius: 3px;
+        }
+
+        /* LCD Screen */
+        .screen-container {
+            background-color: #9ab4a3; /* Casio screen green/grey */
+            border: 2px solid #555;
+            border-radius: 5px;
+            padding: 5px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+            font-family: 'Courier New', Courier, monospace; /* Monospace for dots */
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .screen-indicators {
+            display: flex;
+            font-size: 8px;
+            height: 10px;
+            gap: 5px;
+        }
+        .indicator {
+            display: none; /* Hidden by default */
+        }
+        .indicator.active {
+            display: block;
+        }
+
+        .screen-main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 5px;
+        }
+
+        .screen-input {
+            font-size: 16px;
+            text-align: left;
+            min-height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .screen-result {
+            font-size: 20px;
+            text-align: right;
+            font-weight: bold;
+            min-height: 24px;
+        }
+
+        /* Button Grid Framework */
+        .keypad {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Modifiers & Top Row */
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            width: 35px;
+        }
+
+        .btn {
+            background-color: #4a4a4a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            border-bottom: 2px solid #222;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: transform 0.1s, border-bottom 0.1s;
+            user-select: none;
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            border-bottom: 0px solid #222;
+        }
+
+        .btn-small {
+            width: 35px;
+            height: 22px;
+            border-radius: 10px;
+        }
+
+        .btn-round {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+
+        /* D-Pad */
+        .d-pad-container {
+            width: 70px;
+            height: 70px;
+            position: relative;
+        }
+        .d-pad {
+            position: absolute;
+            background: linear-gradient(135deg, #d3d3d3, #999);
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.5);
+        }
+        .d-btn {
+            position: absolute;
+            background: transparent;
+            border: none;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .d-up { top: 0; left: 22.5px; }
+        .d-down { bottom: 0; left: 22.5px; }
+        .d-left { left: 0; top: 22.5px; }
+        .d-right { right: 0; top: 22.5px; }
+
+        .d-center {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #bbb, #777);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Scientific Grid */
+        .sci-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px 6px;
+        }
+
+        .sci-btn {
+            height: 25px;
+            background-color: #333;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Numpad Grid */
+        .numpad-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px 8px;
+            margin-top: 5px;
+        }
+
+        .num-btn {
+            height: 35px;
+            background-color: #e0e0e0;
+            color: #000;
+            font-size: 1.1rem;
+            border-radius: 5px;
+        }
+
+        .op-btn {
+            height: 35px;
+            background-color: #888;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .del-btn {
+            background-color: #a3c18b; /* Greenish */
+            color: #000;
+        }
+
+        .ac-btn {
+            background-color: #a3c18b;
+            color: #000;
+        }
+
+        /* Labels above buttons */
+        .label {
+            font-size: 0.55rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .label-yellow { color: #d4a017; } /* Shift */
+        .label-red { color: #c44040; } /* Alpha */
+        .label-grey { color: #aaa; }
+
+        /* Container for a button and its top labels */
+        .key-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .labels-top {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 2px;
+            padding: 0 2px;
+            box-sizing: border-box;
+            position: absolute;
+            top: -12px;
+        }
+
+        /* Natural display HTML renderers */
+        .frac {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 2px;
+        }
+        .frac > span:first-child {
+            border-bottom: 1px solid #000;
+            padding: 0 2px;
+        }
+        .frac > span:last-child {
+            padding: 0 2px;
+        }
+
+        .sqrt {
+            display: inline-flex;
+            align-items: center;
+        }
+        .sqrt::before {
+            content: '√';
+            font-size: 1.2em;
+        }
+        .sqrt-inner {
+            border-top: 1px solid #000;
+            padding-top: 1px;
+            margin-left: -2px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="calculator">
+    <!-- Brand & Solar -->
+    <div class="brand-area">
+        <div>
+            <div class="brand-logo">CASIO</div>
+            <div class="brand-model">fx-991ES PLUS<br>NATURAL-V.P.A.M.</div>
+        </div>
+        <div class="solar-panel"></div>
+    </div>
+
+    <!-- Screen -->
+    <div class="screen-container">
+        <div class="screen-indicators">
+            <span id="ind-s" class="indicator">S</span>
+            <span id="ind-a" class="indicator">A</span>
+            <span id="ind-m" class="indicator">M</span>
+            <span id="ind-sto" class="indicator">STO</span>
+            <span id="ind-rcl" class="indicator">RCL</span>
+            <span id="ind-stat" class="indicator">STAT</span>
+            <span id="ind-cmplx" class="indicator">CMPLX</span>
+            <span id="ind-mat" class="indicator">MAT</span>
+            <span id="ind-vct" class="indicator">VCT</span>
+            <span id="ind-d" class="indicator active">D</span> <!-- Degrees by default -->
+            <span id="ind-r" class="indicator">R</span>
+            <span id="ind-g" class="indicator">G</span>
+            <span id="ind-fix" class="indicator">FIX</span>
+            <span id="ind-sci" class="indicator">SCI</span>
+            <span id="ind-math" class="indicator active" style="margin-left:auto;">Math ▲</span>
+        </div>
+        <div class="screen-main">
+            <div id="screen-input" class="screen-input"></div>
+            <div id="screen-result" class="screen-result"></div>
+        </div>
+    </div>
+
+    <!-- Keypad -->
+    <div class="keypad">
+
+        <!-- Top Row -->
+        <div class="top-row">
+            <div class="key-container" style="width: 35px; margin-top: 12px;">
+                <div class="labels-top"><span class="label label-yellow"></span></div>
+                <button class="btn btn-small btn-round" id="btn-shift" style="width:25px;">SHIFT</button>
+            </div>
+            <div class="key-container" style="width: 35px; margin-top: 12px;">
+                <div class="labels-top"><span class="label label-red"></span></div>
+                <button class="btn btn-small btn-round" id="btn-alpha" style="width:25px;">ALPHA</button>
+            </div>
+
+            <div class="d-pad-container">
+                <div class="d-pad"></div>
+                <div class="d-center"></div>
+                <button class="d-btn d-up" id="btn-up"></button>
+                <button class="d-btn d-down" id="btn-down"></button>
+                <button class="d-btn d-left" id="btn-left"></button>
+                <button class="d-btn d-right" id="btn-right"></button>
+            </div>
+
+            <div class="key-container" style="width: 35px; margin-top: 12px;">
+                <div class="labels-top"><span class="label label-yellow">SETUP</span></div>
+                <button class="btn btn-small btn-round" id="btn-mode" style="width:25px;">MODE</button>
+            </div>
+            <div class="key-container" style="width: 35px; margin-top: 12px;">
+                <div class="labels-top"></div>
+                <button class="btn btn-small btn-round" id="btn-on" style="width:25px;">ON</button>
+            </div>
+        </div>
+
+        <!-- Scientific Grid -->
+        <div class="sci-grid" style="margin-top: 15px;">
+            <!-- Row 1 -->
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">SOLVE</span><span class="label label-red">=</span></div>
+                <button class="btn sci-btn" id="btn-calc">CALC</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">d/dx</span><span class="label label-red">:</span></div>
+                <button class="btn sci-btn" id="btn-int">∫</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">x!</span></div>
+                <button class="btn sci-btn" id="btn-xinv">x⁻¹</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">Σ</span></div>
+                <button class="btn sci-btn" id="btn-logab">log_■</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">■/■</span></div>
+                <button class="btn sci-btn" id="btn-frac">■/■</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">³√■</span></div>
+                <button class="btn sci-btn" id="btn-sqrt">√■</button>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">DEC</span></div>
+                <button class="btn sci-btn" id="btn-sq">x²</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">HEX</span></div>
+                <button class="btn sci-btn" id="btn-pow">x^■</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">10^■</span><span class="label label-grey">BIN</span></div>
+                <button class="btn sci-btn" id="btn-log">log</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">e^■</span><span class="label label-grey">OCT</span></div>
+                <button class="btn sci-btn" id="btn-ln">ln</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">A</span><span class="label label-red">A</span></div>
+                <button class="btn sci-btn" id="btn-neg">(-)</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">B</span><span class="label label-red">B</span></div>
+                <button class="btn sci-btn" id="btn-deg">°'"</button>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">C</span><span class="label label-red">C</span></div>
+                <button class="btn sci-btn" id="btn-hyp">hyp</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">sin⁻¹</span><span class="label label-red">D</span></div>
+                <button class="btn sci-btn" id="btn-sin">sin</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">cos⁻¹</span><span class="label label-red">E</span></div>
+                <button class="btn sci-btn" id="btn-cos">cos</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">tan⁻¹</span><span class="label label-red">F</span></div>
+                <button class="btn sci-btn" id="btn-tan">tan</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">STO</span></div>
+                <button class="btn sci-btn" id="btn-rcl">RCL</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">←</span><span class="label label-red">i</span></div>
+                <button class="btn sci-btn" id="btn-eng">ENG</button>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">%</span></div>
+                <button class="btn sci-btn" id="btn-lparen">(</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">,</span><span class="label label-red">X</span></div>
+                <button class="btn sci-btn" id="btn-rparen">)</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">a b/c</span><span class="label label-red">Y</span></div>
+                <button class="btn sci-btn" id="btn-sd">S⇔D</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">M-</span><span class="label label-red">M</span></div>
+                <button class="btn sci-btn" id="btn-mplus">M+</button>
+            </div>
+            <!-- Blank fillers for grid alignment if needed, but we have 24 sci buttons mapped roughly to the 4 rows of 6 -->
+            <div style="grid-column: 5 / 7;"></div>
+        </div>
+
+        <!-- Numpad Grid -->
+        <div class="numpad-grid">
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">CONST</span></div>
+                <button class="btn num-btn" id="btn-7">7</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">CONV</span></div>
+                <button class="btn num-btn" id="btn-8">8</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">CLR</span></div>
+                <button class="btn num-btn" id="btn-9">9</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">INS</span></div>
+                <button class="btn op-btn del-btn" id="btn-del">DEL</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">OFF</span></div>
+                <button class="btn op-btn ac-btn" id="btn-ac">AC</button>
+            </div>
+
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">MATRIX</span></div>
+                <button class="btn num-btn" id="btn-4">4</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">VECTOR</span></div>
+                <button class="btn num-btn" id="btn-5">5</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"></div>
+                <button class="btn num-btn" id="btn-6">6</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">nPr</span></div>
+                <button class="btn op-btn" id="btn-mul">×</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">nCr</span></div>
+                <button class="btn op-btn" id="btn-div">÷</button>
+            </div>
+
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">STAT</span></div>
+                <button class="btn num-btn" id="btn-1">1</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">CMPLX</span></div>
+                <button class="btn num-btn" id="btn-2">2</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">BASE</span></div>
+                <button class="btn num-btn" id="btn-3">3</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">Pol</span></div>
+                <button class="btn op-btn" id="btn-plus">+</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">Rec</span></div>
+                <button class="btn op-btn" id="btn-minus">-</button>
+            </div>
+
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">Rnd</span></div>
+                <button class="btn num-btn" id="btn-0">0</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">Ran#</span><span class="label label-red">RanInt</span></div>
+                <button class="btn num-btn" id="btn-dot">.</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">π</span><span class="label label-red">e</span></div>
+                <button class="btn num-btn" id="btn-exp">×10ˣ</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">DRG▶</span></div>
+                <button class="btn num-btn" id="btn-ans" style="font-size:1rem;">Ans</button>
+            </div>
+            <div class="key-container">
+                <div class="labels-top"><span class="label label-yellow">≈</span></div>
+                <button class="btn op-btn" id="btn-eq">=</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // state.js
+class CalculatorState {
+    constructor() {
+        this.mode = 'COMP'; // COMP, CMPLX, STAT, BASE-N, EQN, MATRIX, TABLE, VECTOR
+        this.angleMode = 'D'; // D, R, G
+        this.shift = false;
+        this.alpha = false;
+        this.ans = null; // Stored Complex object
+        this.vars = {
+            'A': null, 'B': null, 'C': null, 'D': null, 'E': null, 'F': null,
+            'X': null, 'Y': null, 'M': null
+        };
+        this.currentInput = "";
+        this.lastInput = ""; // Used for Ans loop
+    }
+
+    toggleShift() {
+        this.shift = !this.shift;
+        if (this.shift) this.alpha = false;
+    }
+
+    toggleAlpha() {
+        this.alpha = !this.alpha;
+        if (this.alpha) this.shift = false;
+    }
+
+    resetModifiers() {
+        this.shift = false;
+        this.alpha = false;
+    }
+
+    appendInput(str) {
+        this.currentInput += str;
+    }
+
+    deleteInput() {
+        if (this.currentInput.length > 0) {
+            this.currentInput = this.currentInput.slice(0, -1);
+        }
+    }
+
+    clearInput() {
+        this.currentInput = "";
+    }
+}
+
+
+// Token types
+const T = {
+    NUMBER: 'NUMBER',
+    PLUS: 'PLUS',
+    MINUS: 'MINUS',
+    MUL: 'MUL',
+    DIV: 'DIV',
+    POW: 'POW',
+    LPAREN: 'LPAREN',
+    RPAREN: 'RPAREN',
+    FUNC: 'FUNC', // sin, cos, etc.
+    VAR: 'VAR',   // x, A, B, Ans, pi, e
+    IMPLICIT_MUL: 'IMPLICIT_MUL',
+    EOF: 'EOF',
+    POLAR: 'POLAR', // ∠
+    SQRT: 'SQRT',
+    CBRT: 'CBRT',
+    FACT: 'FACT'
+};
+
+class Tokenizer {
+    constructor(input) {
+        this.input = input;
+        this.pos = 0;
+        this.current = null;
+        this.advance();
+    }
+
+    advance() {
+        while (this.pos < this.input.length && /\s/.test(this.input[this.pos])) {
+            this.pos++;
+        }
+
+        if (this.pos >= this.input.length) {
+            this.current = { type: T.EOF, value: null };
+            return;
+        }
+
+        const char = this.input[this.pos];
+
+        if (/[0-9.]/.test(char)) {
+            let numStr = '';
+            let hasDot = false;
+            while (this.pos < this.input.length && /[0-9.]/.test(this.input[this.pos])) {
+                if (this.input[this.pos] === '.') {
+                    if (hasDot) break; // invalid, but let parser handle
+                    hasDot = true;
+                }
+                numStr += this.input[this.pos];
+                this.pos++;
+            }
+            this.current = { type: T.NUMBER, value: numStr };
+            return;
+        }
+
+        if (/[a-zA-Z]/.test(char)) {
+            let ident = '';
+            while (this.pos < this.input.length && /[a-zA-Z]/.test(this.input[this.pos])) {
+                ident += this.input[this.pos];
+                this.pos++;
+            }
+
+            // Map identifiers
+            const funcs = ['sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'log', 'ln', 'sqrt', 'cbrt'];
+            const vars = ['A', 'B', 'C', 'D', 'E', 'F', 'X', 'Y', 'M', 'Ans', 'pi', 'e', 'i'];
+
+            if (funcs.includes(ident)) {
+                this.current = { type: T.FUNC, value: ident };
+            } else if (vars.includes(ident)) {
+                this.current = { type: T.VAR, value: ident };
+            } else {
+                // Unknown, treat as individual vars implicitly multiplied (e.g., AB -> A * B)
+                // For simplicity in this parser, we assume standard variables.
+                // We'll treat the first char as VAR and backtrack.
+                this.pos -= (ident.length - 1);
+                this.current = { type: T.VAR, value: ident[0] };
+            }
+            return;
+        }
+
+        // Single character tokens
+        this.pos++;
+        switch (char) {
+            case '+': this.current = { type: T.PLUS, value: '+' }; break;
+            case '-': this.current = { type: T.MINUS, value: '-' }; break;
+            case '×':
+            case '*': this.current = { type: T.MUL, value: '*' }; break;
+            case '÷':
+            case '/': this.current = { type: T.DIV, value: '/' }; break;
+            case '^': this.current = { type: T.POW, value: '^' }; break;
+            case '(': this.current = { type: T.LPAREN, value: '(' }; break;
+            case ')': this.current = { type: T.RPAREN, value: ')' }; break;
+            case '∠': this.current = { type: T.POLAR, value: '∠' }; break;
+            case '√': this.current = { type: T.SQRT, value: '√' }; break;
+            case '∛': this.current = { type: T.CBRT, value: '∛' }; break;
+            case '!': this.current = { type: T.FACT, value: '!' }; break;
+            default: throw new Error(`Syntax ERROR: Unknown character ${char}`);
+        }
+    }
+}
+
+class Parser {
+    constructor(tokenizer) {
+        this.tokenizer = tokenizer;
+    }
+
+    eat(type) {
+        if (this.tokenizer.current.type === type) {
+            this.tokenizer.advance();
+        } else {
+            // Edge Case 5: Auto-close parens at EOF
+            if (this.tokenizer.current.type === T.EOF && type === T.RPAREN) {
+                // Automatically "eat" the missing paren and do not throw
+                return;
+            }
+            throw new Error(`Syntax ERROR: Expected ${type}, got ${this.tokenizer.current.type}`);
+        }
+    }
+
+    parse() {
+        const result = this.expr();
+        if (this.tokenizer.current.type !== T.EOF) {
+            throw new Error("Syntax ERROR: Unexpected token at end");
+        }
+        return result;
+    }
+
+    // + and -
+    expr() {
+        let node = this.term();
+
+        while (this.tokenizer.current.type === T.PLUS || this.tokenizer.current.type === T.MINUS) {
+            const token = this.tokenizer.current;
+            this.eat(token.type);
+            node = {
+                type: 'BinaryOp',
+                op: token.value,
+                left: node,
+                right: this.term()
+            };
+        }
+        return node;
+    }
+
+    // Explicit * and /
+    term() {
+        let node = this.implicitTerm();
+
+        while (this.tokenizer.current.type === T.MUL || this.tokenizer.current.type === T.DIV) {
+            const token = this.tokenizer.current;
+            this.eat(token.type);
+            node = {
+                type: 'BinaryOp',
+                op: token.value,
+                left: node,
+                right: this.implicitTerm()
+            };
+        }
+        return node;
+    }
+
+    // Edge Case 1: Implicit Multiplication binds tighter than explicit Division!
+    // Example: 1 / 2π -> 1 / (2 * π)
+    implicitTerm() {
+        let node = this.factor();
+
+        // What can implicitly multiply a node?
+        // A NUMBER, VAR, FUNC, LPAREN, SQRT
+        while (
+            this.tokenizer.current.type === T.NUMBER ||
+            this.tokenizer.current.type === T.VAR ||
+            this.tokenizer.current.type === T.FUNC ||
+            this.tokenizer.current.type === T.LPAREN ||
+            this.tokenizer.current.type === T.SQRT
+        ) {
+            node = {
+                type: 'BinaryOp',
+                op: '*',
+                implicit: true,
+                left: node,
+                right: this.factor()
+            };
+        }
+        return node;
+    }
+
+    // Unary +, -, powers, factorials, polars
+    factor() {
+        let node = this.base();
+
+        while (this.tokenizer.current.type === T.POW || this.tokenizer.current.type === T.POLAR) {
+            const token = this.tokenizer.current;
+            this.eat(token.type);
+            node = {
+                type: 'BinaryOp',
+                op: token.value, // ^ or ∠
+                left: node,
+                right: this.factor() // right-associative for powers usually, Casio uses it
+            };
+        }
+
+        // Postfix operations
+        while (this.tokenizer.current.type === T.FACT) {
+            this.eat(T.FACT);
+            node = {
+                type: 'UnaryOp',
+                op: '!',
+                expr: node
+            };
+        }
+
+        return node;
+    }
+
+    base() {
+        const token = this.tokenizer.current;
+
+        if (token.type === T.PLUS) {
+            this.eat(T.PLUS);
+            return { type: 'UnaryOp', op: '+', expr: this.factor() };
+        }
+        if (token.type === T.MINUS) {
+            this.eat(T.MINUS);
+            return { type: 'UnaryOp', op: '-', expr: this.factor() };
+        }
+        if (token.type === T.NUMBER) {
+            this.eat(T.NUMBER);
+            return { type: 'Number', value: parseFloat(token.value) };
+        }
+        if (token.type === T.VAR) {
+            this.eat(T.VAR);
+            return { type: 'Var', name: token.value };
+        }
+        if (token.type === T.LPAREN) {
+            this.eat(T.LPAREN);
+            const node = this.expr();
+            this.eat(T.RPAREN); // This will auto-close if at EOF
+            return node;
+        }
+        if (token.type === T.FUNC) {
+            this.eat(T.FUNC);
+            // Casio auto-opens parens for functions like sin(.
+            // In our token stream, if user typed sin(30), we parse the (
+            // If they typed sin 30, we just parse the factor.
+            let arg;
+            if (this.tokenizer.current.type === T.LPAREN) {
+                this.eat(T.LPAREN);
+                arg = this.expr();
+                this.eat(T.RPAREN);
+            } else {
+                arg = this.factor();
+            }
+            return { type: 'Func', name: token.value, arg: arg };
+        }
+        if (token.type === T.SQRT) {
+            this.eat(T.SQRT);
+            return { type: 'Func', name: 'sqrt', arg: this.factor() };
+        }
+
+        throw new Error(`Syntax ERROR: Unexpected token ${token.type} (${token.value})`);
+    }
+}
+
+
+
+class MathError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "MathError";
+    }
+}
+
+class Complex {
+    constructor(re, im = 0) {
+        this.re = re;
+        this.im = im;
+    }
+
+    add(c) { return new Complex(this.re + c.re, this.im + c.im); }
+    sub(c) { return new Complex(this.re - c.re, this.im - c.im); }
+    mul(c) { return new Complex(this.re * c.re - this.im * c.im, this.re * c.im + this.im * c.re); }
+    div(c) {
+        const denom = c.re * c.re + c.im * c.im;
+        if (denom === 0) throw new MathError("Math ERROR");
+        return new Complex((this.re * c.re + this.im * c.im) / denom, (this.im * c.re - this.re * c.im) / denom);
+    }
+    pow(n) {
+        if (n.im === 0 && Number.isInteger(n.re) && n.re >= 0) {
+            let res = new Complex(1, 0);
+            for (let i = 0; i < n.re; i++) res = res.mul(this);
+            return res;
+        }
+        if (this.re === 0 && this.im === 0) return new Complex(0, 0);
+        const r = this.abs();
+        const theta = this.arg();
+        const ln_r = Math.log(r);
+        const arg_re = n.re * ln_r - n.im * theta;
+        const arg_im = n.re * theta + n.im * ln_r;
+        const R = Math.exp(arg_re);
+        return new Complex(R * Math.cos(arg_im), R * Math.sin(arg_im));
+    }
+    abs() { return Math.sqrt(this.re * this.re + this.im * this.im); }
+    arg() { return Math.atan2(this.im, this.re); }
+
+    static fromPolar(r, theta) {
+        return new Complex(r * Math.cos(theta), r * Math.sin(theta));
+    }
+
+    toString() {
+        let r = this.re;
+        let i = this.im;
+        if (Math.abs(r) < 1e-12) r = 0;
+        if (Math.abs(i) < 1e-12) i = 0;
+        if (i === 0) return String(r);
+        if (r === 0) return `${i === 1 ? '' : i === -1 ? '-' : i}i`;
+        const sign = i > 0 ? '+' : '-';
+        return `${r} ${sign} ${Math.abs(i) === 1 ? '' : Math.abs(i)}i`;
+    }
+}
+
+function evaluate(node, state) {
+    if (!node) return new Complex(0);
+
+    const degToRad = (deg) => state.angleMode === 'D' ? deg * Math.PI / 180 : deg;
+    const radToDeg = (rad) => state.angleMode === 'D' ? rad * 180 / Math.PI : rad;
+
+    const evalNode = (n) => evaluate(n, state);
+
+    if (node.type === 'Number') return new Complex(node.value);
+
+    if (node.type === 'Var') {
+        if (node.name === 'i') {
+            if (state.mode !== 'CMPLX' && state.mode !== 'EQN') {
+                throw new MathError("Syntax ERROR"); // i only in CMPLX
+            }
+            return new Complex(0, 1);
+        }
+        if (node.name === 'pi') return new Complex(Math.PI);
+        if (node.name === 'e') return new Complex(Math.E);
+        if (node.name === 'Ans') return state.ans || new Complex(0);
+        return state.vars[node.name] || new Complex(0);
+    }
+
+    if (node.type === 'UnaryOp') {
+        const val = evalNode(node.expr);
+        if (node.op === '+') return val;
+        if (node.op === '-') return new Complex(-val.re, -val.im);
+        if (node.op === '!') {
+            if (val.im !== 0 || val.re < 0 || !Number.isInteger(val.re)) throw new MathError("Math ERROR");
+            let f = 1;
+            for (let i = 2; i <= val.re; i++) f *= i;
+            return new Complex(f);
+        }
+    }
+
+    if (node.type === 'BinaryOp') {
+        const left = evalNode(node.left);
+        const right = evalNode(node.right);
+        if (node.op === '+') return left.add(right);
+        if (node.op === '-') return left.sub(right);
+        if (node.op === '*') return left.mul(right);
+        if (node.op === '/') return left.div(right);
+        if (node.op === '^') return left.pow(right);
+        if (node.op === '∠') { // Edge Case 2 Polar Input
+            if (state.mode !== 'CMPLX') throw new MathError("Syntax ERROR");
+            // left ∠ right (r ∠ theta)
+            if (left.im !== 0 || right.im !== 0) throw new MathError("Math ERROR");
+            let r = left.re;
+            let theta = right.re;
+            if (state.angleMode === 'D') theta = theta * Math.PI / 180;
+            return Complex.fromPolar(r, theta);
+        }
+    }
+
+    if (node.type === 'Func') {
+        const arg = evalNode(node.arg);
+        if (node.name === 'sin') return new Complex(Math.sin(degToRad(arg.re)));
+        if (node.name === 'cos') return new Complex(Math.cos(degToRad(arg.re)));
+        if (node.name === 'tan') return new Complex(Math.tan(degToRad(arg.re)));
+        if (node.name === 'sqrt') {
+            if (arg.re < 0 && state.mode === 'COMP') throw new MathError("Math ERROR");
+            const r = Math.sqrt(arg.abs());
+            const theta = arg.arg() / 2;
+            return Complex.fromPolar(r, theta);
+        }
+        if (node.name === 'ln') return new Complex(Math.log(arg.re));
+        if (node.name === 'log') return new Complex(Math.log10(arg.re));
+    }
+
+    throw new Error(`Syntax ERROR: Unknown AST node type ${node.type}`);
+}
+
+
+
+
+
+
+function parseAndEval(str, state) {
+    const ast = new Parser(new Tokenizer(str)).parse();
+    return evaluate(ast, state);
+}
+
+function solveQuadratic(a_str, b_str, c_str, state) {
+    // Edge Case 3: Quadratic solver yielding complex conjugate roots
+    const a = parseAndEval(a_str, state);
+    const b = parseAndEval(b_str, state);
+    const c = parseAndEval(c_str, state);
+
+    // Using quadratic formula: x = (-b +- sqrt(b^2 - 4ac)) / 2a
+    // Since we support complex numbers natively in our engine, we can evaluate it
+    const four = new Complex(4);
+    const two = new Complex(2);
+
+    const bSq = b.pow(new Complex(2));
+    const fourAC = four.mul(a).mul(c);
+    const discriminant = bSq.sub(fourAC);
+
+    // discriminant = b^2 - 4ac
+    // sqrt(discriminant)
+    const sqrtD = _complexSqrt(discriminant);
+
+    const minusB = new Complex(-b.re, -b.im);
+    const twoA = two.mul(a);
+
+    const x1 = minusB.add(sqrtD).div(twoA);
+    const x2 = minusB.sub(sqrtD).div(twoA);
+
+    return { x1, x2 };
+}
+
+function _complexSqrt(c) {
+    const r = Math.sqrt(c.abs());
+    const theta = c.arg() / 2;
+    return Complex.fromPolar(r, theta);
+}
+
+
+
+
+
+
+
+
+const state = new CalculatorState();
+
+// Edge Case 4: The Ans Looping Logic
+function handleEquals(state) {
+    if (state.currentInput.trim() === '') {
+        // If input is empty, reuse last input
+        if (state.lastInput !== '') {
+            state.currentInput = state.lastInput;
+            // The physical casio doesn't visibly prepend "Ans" if you just press '=',
+            // it just evaluates the last expression again. But if the last expression was "+ 1",
+            // the tokenizer will see "+ 1" and fail unless it expects an operand.
+            // Wait, the real Casio: if you type "1 =", then "+ 1 =", the input is "Ans+1".
+            // If you just hit "=", it re-evaluates "Ans+1".
+            // So if currentInput is empty, we just copy lastInput.
+        } else {
+            return;
+        }
+    } else {
+        // Check if it starts with an operator (+, -, *, /) and prepend Ans implicitly
+        if (/^[\+\-\*\/×÷\^]/.test(state.currentInput)) {
+            state.currentInput = 'Ans' + state.currentInput;
+        }
+    }
+
+    try {
+        const tokenizer = new Tokenizer(state.currentInput);
+        const parser = new Parser(tokenizer);
+        const ast = parser.parse();
+
+        const result = evaluate(ast, state); console.log('Parsed AST:', JSON.stringify(ast), 'State:', state.mode);
+
+        // Update Ans
+        state.ans = result;
+        state.lastInput = state.currentInput; // Store for loop
+        state.currentInput = ''; // Clear for next fresh input
+
+        return { success: true, value: result.toString(), displayInput: state.lastInput };
+
+    } catch (e) {
+        if (e.name === 'MathError') {
+            return { success: false, value: 'Math ERROR', displayInput: state.currentInput };
+        } else {
+            return { success: false, value: 'Syntax ERROR', displayInput: state.currentInput };
+        }
+    }
+}
+
+
+
+
+// DOM Elements
+const screenInput = document.getElementById('screen-input');
+const screenResult = document.getElementById('screen-result');
+const indS = document.getElementById('ind-s');
+const indA = document.getElementById('ind-a');
+const indCmplx = document.getElementById('ind-cmplx');
+const indMat = document.getElementById('ind-mat');
+const indVct = document.getElementById('ind-vct');
+const indStat = document.getElementById('ind-stat');
+
+// The single global state from main_logic.js
+// state is instantiated above in main_logic.js equivalent
+
+function updateScreen(resultValue = null, isError = false) {
+    screenInput.innerHTML = state.currentInput; // A real implementation would parse and render fractions natively
+    if (resultValue !== null) {
+        screenResult.innerText = resultValue;
+    } else {
+        screenResult.innerText = "";
+    }
+
+    // Update indicators
+    indS.classList.toggle('active', state.shift);
+    indA.classList.toggle('active', state.alpha);
+    indCmplx.classList.toggle('active', state.mode === 'CMPLX');
+    // others...
+}
+
+function handleInput(val) {
+    if (state.currentInput === '' && val !== 'Ans') {
+        state.currentInput = '';
+    }
+    state.currentInput += val;
+    updateScreen();
+}
+
+document.getElementById('btn-shift').addEventListener('click', () => { state.toggleShift(); updateScreen(); });
+document.getElementById('btn-alpha').addEventListener('click', () => { state.toggleAlpha(); updateScreen(); });
+
+// Numbers
+for (let i = 0; i <= 9; i++) {
+    const el = document.getElementById('btn-'+i);
+    if(el) el.addEventListener('click', () => handleInput(i.toString()));
+}
+document.getElementById('btn-dot').addEventListener('click', () => handleInput('.'));
+document.getElementById('btn-exp').addEventListener('click', () => handleInput('E')); // Scientific notation
+document.getElementById('btn-ans').addEventListener('click', () => handleInput('Ans'));
+
+// Operators
+document.getElementById('btn-plus').addEventListener('click', () => handleInput('+'));
+document.getElementById('btn-minus').addEventListener('click', () => handleInput('-'));
+document.getElementById('btn-mul').addEventListener('click', () => handleInput('×'));
+document.getElementById('btn-div').addEventListener('click', () => handleInput('÷'));
+document.getElementById('btn-lparen').addEventListener('click', () => handleInput('('));
+document.getElementById('btn-rparen').addEventListener('click', () => handleInput(')'));
+
+// Scientific
+document.getElementById('btn-sin').addEventListener('click', () => handleInput(state.shift ? 'asin(' : 'sin('));
+document.getElementById('btn-cos').addEventListener('click', () => handleInput(state.shift ? 'acos(' : 'cos('));
+document.getElementById('btn-tan').addEventListener('click', () => handleInput(state.shift ? 'atan(' : 'tan('));
+document.getElementById('btn-sqrt').addEventListener('click', () => handleInput(state.shift ? '∛(' : '√('));
+document.getElementById('btn-pow').addEventListener('click', () => handleInput('^'));
+document.getElementById('btn-sq').addEventListener('click', () => handleInput('^2'));
+document.getElementById('btn-ln').addEventListener('click', () => handleInput(state.shift ? 'e^(' : 'ln('));
+document.getElementById('btn-log').addEventListener('click', () => handleInput(state.shift ? '10^(' : 'log('));
+ // CMPLX i is mapped differently below
+
+// Control
+document.getElementById('btn-ac').addEventListener('click', () => {
+    state.currentInput = '';
+    updateScreen();
+});
+
+document.getElementById('btn-del').addEventListener('click', () => {
+    state.currentInput = state.currentInput.slice(0, -1);
+    updateScreen();
+});
+
+document.getElementById('btn-eq').addEventListener('click', () => {
+    // If empty input, copy last input to trigger Ans Loop
+    if (state.currentInput === '') {
+        state.currentInput = state.lastInput;
+    } else if (/^[\+\-\*\/×÷\^]/.test(state.currentInput)) {
+        state.currentInput = 'Ans' + state.currentInput;
+    }
+
+    // Replace visual operators with token parsable operators
+    let parseStr = state.currentInput.replace(/×/g, '*').replace(/÷/g, '/');
+
+    try {
+        const ast = new Parser(new Tokenizer(parseStr)).parse();
+        const result = evaluate(ast, state);
+
+        state.ans = result;
+        state.lastInput = state.currentInput;
+        state.currentInput = '';
+
+        updateScreen(result.toString());
+        state.shift = false;
+        state.alpha = false;
+    } catch (e) {
+        if (e.name === 'MathError') {
+            updateScreen('Math ERROR', true);
+        } else {
+            updateScreen('Syntax ERROR', true);
+        }
+        state.shift = false;
+        state.alpha = false;
+    }
+});
+
+// Mode switching
+document.getElementById('btn-mode').addEventListener('click', () => {
+    // A real implementation opens a menu. We'll toggle COMP -> CMPLX -> EQN for demonstration.
+    if (state.mode === 'COMP') state.mode = 'CMPLX';
+    else if (state.mode === 'CMPLX') state.mode = 'EQN';
+    else state.mode = 'COMP';
+
+    state.currentInput = '';
+    updateScreen('Mode: ' + state.mode);
+});
+
+// CMPLX specific keys
+document.getElementById('btn-eng').addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent default ENG handling
+    if (state.mode === 'CMPLX') {
+        if (state.shift) {
+            handleInput('∠');
+        } else {
+            handleInput('i');
+        }
+    }
+});
+
+updateScreen();
+
+    console.log("UI Initialized");
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bratadeepsarkar123/casio-fx-991es-plus-2nd-edition-scientific-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bratadeepsarkar123/casio-fx-991es-plus-2nd-edition-scientific-calculator/issues"
+  },
+  "homepage": "https://github.com/bratadeepsarkar123/casio-fx-991es-plus-2nd-edition-scientific-calculator#readme",
+  "dependencies": {
+    "jsdom": "^29.0.1",
+    "puppeteer": "^24.40.0"
+  }
+}

@@ -14,7 +14,7 @@ function click(id) {
 
 function expectScreen(input, result) {
     const screenInput = document.getElementById('screen-input').innerHTML;
-    const screenResult = document.getElementById('screen-result').innerText;
+    const screenResult = document.getElementById('screen-result').textContent;
     if (input !== null && screenInput !== input) throw new Error(`Expected input '${input}', got '${screenInput}'`);
     if (result !== null && screenResult !== result) throw new Error(`Expected result '${result}', got '${screenResult}'`);
 }
@@ -32,7 +32,7 @@ try {
     click('btn-0');
     click('btn-eq');
     // Result should be evaluated as complex
-    const result = document.getElementById('screen-result').innerText;
+    const result = document.getElementById('screen-result').textContent;
     console.log("5∠30 =", result);
     if (!result.includes('4.33')) throw new Error("Failed CMPLX parsing in UI");
     console.log("UI Test Edge Case 2 Passed");
@@ -45,11 +45,11 @@ try {
     click('btn-plus'); // implicitly adds Ans to input "Ans+"
     click('btn-1');
     click('btn-eq');
-    expectScreen('', '2'); // Result is 2
+    expectScreen(null, '2'); // Result is 2
 
     // Now just press eq again
     click('btn-eq');
-    expectScreen('', '3');
+    expectScreen(null, '3');
     console.log("UI Test Edge Case 4 Passed");
 
     console.log("All UI Tests Passed.");
